@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Bankereum!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js"
+      integrity="sha512-nIwdJlD5/vHj23CbO2iHCXtsqzdTTx3e3uAmpTm4x2Y8xCIFyWu4cSIV8GaGe2UNVq86/1h9EgUZy7tn243qdA=="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/glide.min.js"
+      integrity="sha512-IkLiryZhI6G4pnA3bBZzYCT9Ewk87U4DGEOz+TnRD3MrKqaUitt+ssHgn2X/sxoM7FxCP/ROUp6wcxjH/GcI5Q=="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.core.min.css"
+      integrity="sha512-YQlbvfX5C6Ym6fTUSZ9GZpyB3F92hmQAZTO5YjciedwAaGRI9ccNs4iw2QTCJiSPheUQZomZKHQtuwbHkA9lgw=="
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/tailwind.min.css" />
+    <link rel="stylesheet" href="./css/hamburgers.min.css" />
+  </head>
+  <style>
+    :root {
+      --primary: #012e58;
+      --secondary: #fff5dc;
+      --accent: #f6f6f6;
+      --dark: #393939;
+    }
+    body {
+      font-family: "Montserrat";
+    }
+    .bg-lion {
+      background-color: #012e58;
+      background-image: url("./img/tiger-img.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 35%;
+    }
+    @media screen and (max-width: 767px) {
+      nav {
+        transition: 0.4s ease;
+      }
+      .nav-collapsed {
+        margin-top: -140%;
+        transition: 0.4s ease;
+      }
+    }
+  </style>
+  <body class="bg-gray-50">
+    <div class="w-full lg:hidden z-40 p-8 absolute" x-data="{ active: false }">
+      <div
+        class="hamburger text-white bg-gray-100 rounded-lg float-right is-active mx-auto w-max"
+        :class="{ 'hamburger--3dx': active == true}"
+        @click="active = ! active"
+      >
+        <div class="hamburger-box">
+          <div class="hamburger-inner"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="">
+      <div
+        class="absolute z-40 mt-8 lg:mt-0 rounded-3xl ml-10 bg-transparent lg:px-6 lg:py-8 lg:pt-4 py-2 px-4"
+      >
+        <img src="./img/logo.png" alt="Myfuse!" class="w-32 mt-0 lg:mt-6" />
+      </div>
+    </div>
+
+    <nav
+      class="absolute bg-white mx-auto w-full z-0 nav-collapsed items-center lg:py-10 pt-32 py-6 lg:flex lg:px-16 justify-center shadow-xl"
+    >
+      <div class="ml-auto">Thursday 28 January 2021 12:13:8am</div>
+    </nav>
+    <script>
+      $(".hamburger").on("click", function () {
+        $("nav").toggleClass("nav-collapsed");
+      });
+    </script>
+    <header class="bg-lion py-48 lg:p-48 items-center text-center">
+      <h1 class="text-4xl lg:text-6xl text-yellow-200 font-semibold uppercase">
+        bankereum
+      </h1>
+      <div class="pt-4 text-white">
+        <h2 class="text-xl lg:text-3xl font-semibold uppercase">
+          the world's best
+        </h2>
+        <h3 class="font-semibold text-xs lg:text-sm uppercase">
+          100% decentralized crypto bank
+        </h3>
+      </div>
+      <div
+        class="pt-6 px-10 lg:px-0 font-semibold text-white grid grid-cols-1 lg:grid-cols-3 gap-3"
+      >
+        <a
+          href="./registration.html"
+          class="transition duration-300 px-8 py-4 mx-2 focus:outline-none text-sm uppercase font-semibold hover:bg-blue-600 bg-blue-500 rounded-full"
+        >
+          <button class="font-semibold">Registration</button>
+        </a>
+        <a
+          href="./account.html"
+          class="transition duration-300 px-8 py-4 mx-2 focus:outline-none text-sm uppercase text-black font-semibold hover:bg-yellow-300 bg-yellow-200 rounded-full"
+        >
+          <button class="font-semibold">View Account</button>
+        </a>
+        <a
+          href="./login.html"
+          class="transition duration-300 px-8 py-4 mx-2 focus:outline-none text-sm uppercase font-semibold hover:bg-blue-600 bg-blue-500 rounded-full"
+        >
+          <button class="font-semibold">Log in</button>
+        </a>
+      </div>
+    </header>
+    <main class="lg:p-10">
+      <div
+        class="px-6 py-8 shadow-2xl grid grid-cols-1 lg:grid-cols-3 gap-8 pb-20"
+      >
+        <div
+          class="mx-auto divide-y shadow-2xl px-8 py-8 rounded-3xl hover:text-gray-600"
+        >
+          <div class="flex items-center py-3">
+            <div
+              class="w-12 h-12 items-center text-center rounded-full bg-blue-50 shadow-inner"
+            >
+              <i class="fa fa-lg fa-dollar-sign text-primary pt-4"></i>
+            </div>
+            <h1 class="ml-4 font-semibold text-lg py-1 uppercase font-sans">
+              Benefits
+            </h1>
+          </div>
+          <p class="text-xs pt-4">
+            A new secure and integrated access point to the crypto world is now
+            possible. Bankereum closes the gap between the digital asset world
+            and traditional banks by providing new standards in safety,
+            performance and transparency.
+          </p>
+        </div>
+        <div
+          class="mx-auto divide-y shadow-2xl px-8 py-8 rounded-3xl hover:text-gray-600"
+        >
+          <div class="flex items-center py-3">
+            <div
+              class="w-12 h-12 items-center text-center rounded-full bg-blue-50 shadow-inner"
+            >
+              <i class="fa fa-lg fa-lock text-primary pt-4"></i>
+            </div>
+            <h1 class="ml-4 font-semibold text-lg py-1 uppercase font-sans">
+              Safety
+            </h1>
+          </div>
+          <p class="text-xs pt-4">
+            Be assured that your assets are managed and stored in the most
+            protected and trusted environment. Our cyber and physical security
+            experts are leveraging new technologies and work with best-in-class
+            service partners to deliver the market's most secure future crypto
+            experience.
+          </p>
+        </div>
+        <div
+          class="mx-auto divide-y shadow-2xl px-8 py-8 rounded-3xl hover:text-gray-600"
+        >
+          <div class="flex items-center py-3">
+            <div
+              class="w-12 h-12 items-center text-center rounded-full bg-blue-50 shadow-inner"
+            >
+              <i class="fa fa-lg fa-donate text-primary pt-4"></i>
+            </div>
+            <h1 class="ml-4 font-semibold text-lg py-1 uppercase font-sans">
+              Banking
+            </h1>
+          </div>
+          <p class="text-xs pt-4">
+            Bankereum is a bank for everyone. Not everyone has access to
+            financial services. But all you need to access Ethereum and its
+            lending, borrowing and savings products is an internet connection.
+          </p>
+        </div>
+        <div
+          class="mx-auto divide-y shadow-2xl px-8 py-8 rounded-3xl hover:text-gray-600"
+        >
+          <div class="flex items-center py-3">
+            <div
+              class="w-12 h-12 items-center text-center rounded-full bg-blue-50 shadow-inner"
+            >
+              <i class="fa fa-lg fa-handshake text-primary pt-4"></i>
+            </div>
+            <h1 class="ml-4 font-semibold text-lg py-1 uppercase font-sans">
+              Community
+            </h1>
+          </div>
+          <p class="text-xs pt-4">
+            Our community includes people from all backgrounds, including
+            artists, crypto-anarchists, multi-national companies, directors,
+            business man, etc., and now you. Find out how you can get involved
+            today.
+          </p>
+        </div>
+        <div
+          class="mx-auto divide-y shadow-2xl px-8 py-8 rounded-3xl hover:text-gray-600"
+        >
+          <div class="flex items-center py-3">
+            <div
+              class="w-12 h-12 items-center text-center rounded-full bg-blue-50 shadow-inner"
+            >
+              <i class="fab fa-lg fa-ethereum text-primary pt-4"></i>
+            </div>
+            <h1 class="ml-4 font-semibold text-lg py-1 uppercase font-sans">
+              ETH Wallets
+            </h1>
+          </div>
+          <p class="text-xs pt-4">
+            Ethereum wallets are applications that let you interact with your
+            Ethereum account. Think of it like an internet banking app – without
+            the bank. Your wallet lets you read your balance, send transactions
+            and connect to applications.
+          </p>
+        </div>
+        <div
+          class="mx-auto divide-y shadow-2xl px-8 py-8 rounded-3xl hover:text-gray-600"
+        >
+          <div class="flex items-center py-3">
+            <div
+              class="w-12 h-12 items-center text-center rounded-full bg-blue-50 shadow-inner"
+            >
+              <i class="fa fa-lg fa-coins text-primary pt-4"></i>
+            </div>
+            <h1 class="ml-4 font-semibold text-lg py-1 uppercase font-sans">
+              ETH 2.0
+            </h1>
+          </div>
+          <p class="text-xs pt-4">
+            Eth2 refers to a set of interconnected upgrades that will make
+            Ethereum more scalable, more secure, and more sustainable. These
+            upgrades are being built by multiple teams from across the Ethereum
+            ecosystem.
+          </p>
+        </div>
+      </div>
+      <iframe
+        src="https://widget.coinlib.io/widget?type=full_v2&amp;theme=light&amp;cnt=6&amp;pref_coin_id=1505&amp;graph=yes"
+        width="100%"
+        height="409px"
+        scrolling="auto"
+        marginwidth="0"
+        marginheight="0"
+        frameborder="0"
+        border="0"
+        class="shadow-xl"
+      ></iframe>
+      <iframe
+        src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=light&amp;pref_coin_id=1505&amp;invert_hover="
+        width="100%"
+        height="36px"
+        scrolling="auto"
+        marginwidth="0"
+        marginheight="0"
+        frameborder="0"
+        border="0"
+        style="border: 0; margin: 0; padding: 0"
+      ></iframe>
+    </main>
+    <footer class="px-10 py-6 bg-gray-800 text-white">
+      <div class="lg:flex">
+        <div class="px-8">
+          <img src="./img/logo.png" alt="Logo" />
+          <p class="text-xs">
+            Bankereum is a 100% decentralized global bank based on Ethereum
+            blockchain technology, which already successfully unify professional
+            traders, companies and individuals wishing to use cryptocurrencies
+            without the risk of volatility on single platform. The software is
+            based on Ethereum cryptocurrency and the transaction framework uses
+            the latest Blockchain capabilities. Get all benefits of “digital
+            gold” and more features with the world’s best crypto bank named
+            ‘Bankereum’.
+          </p>
+        </div>
+        <div class="lg:pt-0 pt-10 lg:px-10">
+          <h1 class="font-semibold text-2xl">Newsletter</h1>
+          <h4 class="font-semibold text-xs">
+            Keep up to date with our progress. Subscribe for e-mail updates.
+          </h4>
+          <div class="">
+            <input
+              type="text"
+              placeholder="Email Address"
+              class="shadow-inner focus:outline-none bg-gray-700 px-6 py-3 my-2 rounded-3xl"
+            />
+            <button
+              class="px-6 py-2 hover:bg-gray-400 focus:outline-none bg-gray-600 rounded-3xl"
+            >
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex grid grid-cols-1 lg:grid-cols-6 lg:divide-x pt-10 text-center text-xs pb-10"
+      >
+        <a href="#"><h3 class="text-xs">Banking</h3></a>
+        <a href="#"><h3 class="text-xs">Disclaimer</h3></a>
+        <a href="#"><h3 class="text-xs">FAQ</h3></a>
+        <a href="#"><h3 class="text-xs">Cookie Policy</h3></a>
+        <a href="#"><h3 class="text-xs">Privacy Policy</h3></a>
+        <a href="#"><h3 class="text-xs">About Us</h3></a>
+      </div>
+      <h1 class="text-center">
+        Copyright © 2020-2021 Bankereum. All rights reserved.
+      </h1>
+    </footer>
+  </body>
+</html>

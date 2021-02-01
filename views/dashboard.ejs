@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Bankereum!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js"
+      integrity="sha512-nIwdJlD5/vHj23CbO2iHCXtsqzdTTx3e3uAmpTm4x2Y8xCIFyWu4cSIV8GaGe2UNVq86/1h9EgUZy7tn243qdA=="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/glide.min.js"
+      integrity="sha512-IkLiryZhI6G4pnA3bBZzYCT9Ewk87U4DGEOz+TnRD3MrKqaUitt+ssHgn2X/sxoM7FxCP/ROUp6wcxjH/GcI5Q=="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.core.min.css"
+      integrity="sha512-YQlbvfX5C6Ym6fTUSZ9GZpyB3F92hmQAZTO5YjciedwAaGRI9ccNs4iw2QTCJiSPheUQZomZKHQtuwbHkA9lgw=="
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css"
+      integrity="sha512-+mlclc5Q/eHs49oIOCxnnENudJWuNqX5AogCiqRBgKnpoplPzETg2fkgBFVC6WYUVxYYljuxPNG8RE7yBy1K+g=="
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    :root {
+      --primary: #012e58;
+      --secondary: #fff5dc;
+      --accent: #f6f6f6;
+      --dark: #393939;
+    }
+    body {
+      font-family: "Montserrat";
+    }
+    .bg-lion {
+      background-color: #012e58;
+      background-image: url("./img/tiger-img.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 35%;
+    }
+    @media screen and (max-width: 767px) {
+      nav {
+        transition: 0.4s ease;
+      }
+      .nav-collapsed {
+        margin-top: -140%;
+        transition: 0.4s ease;
+      }
+    }
+  </style>
+  <body class="bg-gray-50">
+    <div class="w-full lg:hidden z-40 p-8 absolute" x-data="{ active: false }">
+      <div
+        class="hamburger text-white bg-gray-100 rounded-lg float-right is-active mx-auto w-max"
+        :class="{ 'hamburger--3dx': active == true}"
+        @click="active = ! active"
+      >
+        <div class="hamburger-box">
+          <div class="hamburger-inner"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="">
+      <div
+        class="absolute z-40 mt-8 lg:mt-0 rounded-3xl ml-10 bg-transparent lg:px-6 lg:py-8 lg:pt-4 py-2 px-4"
+      >
+        <img src="./img/logo.png" alt="Myfuse!" class="w-32 mt-0 lg:mt-6" />
+      </div>
+    </div>
+
+    <nav
+      class="absolute bg-white mx-auto w-full z-0 nav-collapsed items-center lg:py-10 pt-32 py-6 lg:flex lg:px-16 justify-center shadow-xl"
+    >
+      <div class="ml-auto">Thursday 28 January 2021 12:13:8am</div>
+    </nav>
+    <script>
+      $(".hamburger").on("click", function () {
+        $("nav").toggleClass("nav-collapsed");
+      });
+    </script>
+    <main class="py-32">
+      <div class="lg:flex justify-center text-center w-full">
+        <div class="mr-auto px-4">
+          <h1 class="font-normal lg:text-2xl ml-auto">Hi Ahmad!</h1>
+        </div>
+        <div
+          class="lg:ml-auto w-max mx-auto px-6 py-2 bg-white lg:shadow-2xl rounded-full lg:mr-6"
+        >
+          <h1 class="font-semibold text-xs lg:text-lg mr-auto">
+            Account ID: <span class="text-green-500">3ugdsf7364</span>
+          </h1>
+        </div>
+      </div>
+  
+      <div class="p-10 lg:grid grid-cols-4 gap-5 lg:divide-x">
+        <div class="w-full text-center pt-16 lg:pt-0 lg:divide-y">
+          <h1 class="font-semibold text-2xl uppercase py-2">Daily Profit</h1>
+            <div class="grid grid-cols-2 lg:grid-cols-1">
+              <div class="">
+                <h1 class="font-semibold text-sm uppercase pt-4">
+                  Your Investment
+                </h1>
+                  <h2
+                  class="font-semibold text-xl text-blue-700 w-max mx-auto px-4 py-2"
+                >
+                  $173.23
+                </h2>
+              </div>
+              <div class="">
+              <h1 class="font-semibold text-sm uppercase pt-4">
+                Earnings balance
+              </h1>
+              <h2
+                class="font-semibold text-xl text-green-500 w-max mx-auto px-4 py-2"
+              >
+                $197.341
+              </h2>
+              <p style="font-size: 10px" class="hidden lg:block">
+                Earning increase automatically @ 1%/day
+              </p>
+            </div>
+            <div class="">
+              <h1 class="font-semibold text-sm uppercase pt-4">
+                Total widthrawn
+              </h1>
+              <h2
+              class="font-semibold text-red-500 text-xl w-max mx-auto px-4 py-2"
+              >
+              <span><i class="fab fa-btc text-yellow-600"></i></span> 0.03124
+            </h2>
+          </div>
+          <div class="">
+            <h1 class="font-semibold text-sm uppercase pt-4">
+              Total Balance
+            </h1>
+            <h2 class="font-semibold text-xl w-max mx-auto px-4 py-2">
+              <span><i class="fab fa-btc text-yellow-600"></i></span> 1.0725
+            </h2>
+          </div>
+        </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="mx-auto flex px-6 py-2 w-4/5 rounded-2xl bg-white shadow">
+              <h4><span class="fab fa-btc"></span> 0.00264</h4>
+              <div class="ml-auto"><i class="fa fa-check text-green-400"></i></div>
+            </div>
+            <div class="mx-auto flex px-6 py-2 w-4/5 rounded-2xl bg-white shadow">
+              <h4><span class="fab fa-btc"></span> 0.08320</h4>
+              <div class="ml-auto"><i class="fa fa-check text-red-400"></i></div>
+            </div>
+            
+          </div>
+          <div class="p-10 text-center">
+            <h1 class="font-semibold text-xl uppercase text-center py-2">Make a Deposit</h1>
+            <div class="text-center">
+              <div class="flex items-center mx-auto w-56">
+                <i class="fab fa-btc px-2 text-yellow-700"></i>
+                <input
+                type="number"
+                min="0.001"
+                value="0.001"
+                name="depositvalue"
+                class="border w-36 py-2 px-4 shadow-inner focus:outline-none my-2 rounded-3xl shadow-inner"
+                />
+              </div>
+              <button name="depositbtn" class="px-6 py-2 bg-blue-400 transition duration-300 focus:outline-none hover:bg-blue-500 rounded-3xl shadow text-white text-center">Invest</button>
+              <div style="font-size: 10px">
+                <h1 class="font-semibold uppercase py-1">
+                  Minimum Deposit: 0.00100000 BTC
+                </h1>
+                <h1 class="font-semibold uppercase py-1">
+                  Maximum Deposit: No Limit
+                </h1>
+                <h1 class="font-semibold uppercase py-1">
+                  No transaction fees (othere than the network fee)
+                </h1>
+              </div>
+            </div>
+          </div>
+          <script>
+            let depositVal = document.querySelector('[name="depositvalue"]').value;
+            let depositbtn = document.querySelector('button[name="depositbtn"]');
+            depositbtn.addEventListener('click', (e)=>{
+              e.preventDefault();
+              fetch('')
+            })
+          </script>
+          
+          <div class="p-10 text-center">
+            <h1 class="font-semibold text-xl uppercase text-center py-2">Widthraw from Balance</h1>
+            <div class="text-center">
+              <div class="flex items-center mx-auto w-56">
+                <i class="fab fa-btc px-2 text-yellow-700"></i>
+                <input
+                type="number"
+                min="0.0001"
+                value="0.0001"
+                class="border w-36 py-2 px-4 shadow-inner focus:outline-none my-2 rounded-3xl shadow-inner"
+                />
+              </div>
+              <button class="px-6 py-2 bg-blue-400 transition duration-300 focus:outline-none hover:bg-blue-500 rounded-3xl shadow text-white text-center">Widthraw</button>
+              <div style="font-size: 10px">
+                <h1 class="font-semibold uppercase py-1">
+                  Minimum Deposit: 0.00100000 BTC
+                </h1>
+                <h1 class="font-semibold uppercase py-1">
+                  Maximum Deposit: No Limit
+                </h1>
+                <h1 class="font-semibold uppercase py-1">
+                  No transaction fees (othere than the network fee)
+                </h1>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="pt-10">
+        <h1 class="text-2xl text-center">REFERRAL STATUS</h1>
+        <div class="text-center mx-auto">
+          <p>
+            Tier1 <span class="text-blue-700">(3%)</span> Tier2
+            <span class="text-blue-700">(2%)</span> Tier3
+            <span class="text-blue-700">(1%)</span>
+          </p>
+        </div>
+        <p class="text-xs text-center py-2">
+          Referral commission will be credited instantly to your Main Account,
+          every time your referral makes investment
+        </p>
+      </div>
+      <h1 class="font-semibold text-2xl uppercase text-center pt-3">
+        Your Referral Link
+      </h1>
+      <div class="flex rounded-full bg-gray-200 w-max mx-auto">
+        <input
+          type="text"
+          value="https://bankereum.xyz/registration?referral=VSBUBNHRMD-USER"
+          class="px-4 py-3 bg-transparent lg:w-96 focus:outline-none"
+        />
+        <button
+          class="bg-gray-400 font-semibold px-4 m-1 focus:outline-none rounded-full"
+        >
+          Copy
+        </button>
+      </div>
+      <h1 class="text-sm font-semibold text-center py-4">
+        Your money will be invested in various business around the globe, so
+        that you can get regular returns for your investments
+      </h1>
+      <div
+        class="grid grid-cols-2 lg:grid-cols-5 gap-6 px-10 text-center pt-6 items-center"
+      >
+        <div class="px-4 py-6 shadow-2xl rounded-3xl">
+          <h1 class="font-semibold text-sm">Your total deposits</h1>
+          <h4 class="text-sm">$3,315</h4>
+        </div>
+        <div class="px-4 py-6 shadow-2xl rounded-3xl">
+          <h1 class="font-semibold text-sm">Your total bonus</h1>
+          <h4 class="text-sm">$35</h4>
+        </div>
+        <div class="px-4 py-6 shadow-2xl rounded-3xl">
+          <h1 class="font-semibold text-sm">Your total Earnings</h1>
+          <h4 class="text-sm">$405</h4>
+        </div>
+        <div class="px-4 py-6 shadow-2xl rounded-3xl">
+          <h1 class="font-semibold text-sm">Your total withdrawals</h1>
+          <h4 class="text-sm">$65</h4>
+        </div>
+        <div class="px-4 py-6 shadow-2xl rounded-3xl">
+          <h1 class="font-semibold text-sm">Total referral earnings</h1>
+          <h4 class="text-sm">$235</h4>
+        </div>
+      </div> -->
+    </main>
+    <iframe
+      src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=light&amp;pref_coin_id=1505&amp;invert_hover="
+      width="100%"
+      height="36px"
+      scrolling="auto"
+      marginwidth="0"
+      marginheight="0"
+      frameborder="0"
+      border="0"
+      style="border: 0; margin: 0; padding: 0"
+    ></iframe>
+    <footer class="px-10 py-6 bg-gray-800 text-white">
+      <div class="lg:flex">
+        <div class="px-8">
+          <img src="./img/logo.png" alt="Logo" />
+          <p class="text-xs">
+            Bankereum is a 100% decentralized global bank based on Ethereum
+            blockchain technology, which already successfully unify professional
+            traders, companies and individuals wishing to use cryptocurrencies
+            without the risk of volatility on single platform. The software is
+            based on Ethereum cryptocurrency and the transaction framework uses
+            the latest Blockchain capabilities. Get all benefits of “digital
+            gold” and more features with the world’s best crypto bank named
+            ‘Bankereum’.
+          </p>
+        </div>
+        <div class="lg:pt-0 pt-10 lg:px-10">
+          <h1 class="font-semibold text-2xl">Newsletter</h1>
+          <h4 class="font-semibold text-xs">
+            Keep up to date with our progress. Subscribe for e-mail updates.
+          </h4>
+          <div class="">
+            <input
+              type="text"
+              placeholder="Email Address"
+              class="shadow-inner focus:outline-none bg-gray-700 px-6 py-3 my-2 rounded-3xl"
+            />
+            <button
+              class="px-6 py-2 hover:bg-gray-400 focus:outline-none bg-gray-600 rounded-3xl"
+            >
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex grid grid-cols-1 lg:grid-cols-6 lg:divide-x pt-10 text-center text-xs pb-10"
+      >
+        <a href="#"><h3 class="text-xs">Banking</h3></a>
+        <a href="#"><h3 class="text-xs">Disclaimer</h3></a>
+        <a href="#"><h3 class="text-xs">FAQ</h3></a>
+        <a href="#"><h3 class="text-xs">Cookie Policy</h3></a>
+        <a href="#"><h3 class="text-xs">Privacy Policy</h3></a>
+        <a href="#"><h3 class="text-xs">About Us</h3></a>
+      </div>
+      <h1 class="text-center">
+        Copyright © 2020-2021 Bankereum. All rights reserved.
+      </h1>
+    </footer>
+  </body>
+</html>
