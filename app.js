@@ -41,7 +41,7 @@ app.get("/get-cookies", (req, res) => {
 
 app.use("/api/user", authRoute);
 app.use("/user", userRoute);
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log("Listening on port " + port + "...");
 });
