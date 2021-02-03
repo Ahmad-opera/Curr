@@ -9,13 +9,17 @@ module.exports.register = async (req, res) => {
   const emailExist = await User.findOne({ email: req.body.email });
   if (emailExist) return res.status(400).send("Email already exists");
   const user = new User({
-    name: req.body.name,
+    username: req.body.username,
+    Firstname: req.body.Firstname,
+    Lastname: req.body.Lastname,
     email: req.body.email,
+    country: req.body.country,
+    account_type: "personal",
     password: req.body.password,
   });
   try {
-    const savedUser = await user.save();
-    res.send(savedUser);
+    user.save();
+    res.send(user);
   } catch (error) {
     res.send(error);
   }

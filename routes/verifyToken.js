@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
 
 module.exports = function (req, res, next) {
   const token = req.cookies.token;

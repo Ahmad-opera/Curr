@@ -35,6 +35,10 @@ app.get("/login", (req, res) => {
   res.render("login", { data: { name: "ahmad" } });
 });
 
+app.get("/register", (req, res) => {
+  res.render("registration", { data: { name: "ahmad" } });
+});
+
 app.get("/get-cookies", (req, res) => {
   res.json(req.cookies);
 });

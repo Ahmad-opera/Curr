@@ -108,7 +108,7 @@
     <main class="py-32">
       <div class="lg:flex justify-center text-center w-full">
         <div class="mr-auto px-4">
-          <h1 class="font-normal lg:text-2xl ml-auto">Hi Ahmad!</h1>
+          <h1 class="font-normal lg:text-2xl ml-auto">Hi <%= data %>! </h1>
         </div>
         <div
           class="lg:ml-auto w-max mx-auto px-6 py-2 bg-white lg:shadow-2xl rounded-full lg:mr-6"
@@ -118,66 +118,91 @@
           </h1>
         </div>
       </div>
-  
-      <div class="p-10 lg:grid grid-cols-4 gap-5 lg:divide-x">
+      
+      <div class="p-10 lg:grid grid-cols-2 gap-5 lg:divide-x">
         <div class="w-full text-center pt-16 lg:pt-0 lg:divide-y">
           <h1 class="font-semibold text-2xl uppercase py-2">Daily Profit</h1>
-            <div class="grid grid-cols-2 lg:grid-cols-1">
-              <div class="">
-                <h1 class="font-semibold text-sm uppercase pt-4">
-                  Your Investment
-                </h1>
-                  <h2
-                  class="font-semibold text-xl text-blue-700 w-max mx-auto px-4 py-2"
-                >
-                  $173.23
-                </h2>
-              </div>
-              <div class="">
-              <h1 class="font-semibold text-sm uppercase pt-4">
-                Earnings balance
-              </h1>
-              <h2
-                class="font-semibold text-xl text-green-500 w-max mx-auto px-4 py-2"
-              >
-                $197.341
-              </h2>
-              <p style="font-size: 10px" class="hidden lg:block">
-                Earning increase automatically @ 1%/day
-              </p>
-            </div>
+          <div class="grid grid-cols-2">
             <div class="">
               <h1 class="font-semibold text-sm uppercase pt-4">
-                Total widthrawn
+                Your Investment
               </h1>
-              <h2
-              class="font-semibold text-red-500 text-xl w-max mx-auto px-4 py-2"
+                <h2
+                class="font-semibold text-lg text-blue-700 w-max mx-auto px-4 py-2"
               >
-              <span><i class="fab fa-btc text-yellow-600"></i></span> 0.03124
+                $173.23
+              </h2>
+            </div>
+            <div class="">
+            <h1 class="font-semibold text-sm uppercase pt-4">
+              Earnings balance
+            </h1>
+            <h2
+              class="font-semibold text-lg text-green-500 w-max mx-auto px-4 py-2"
+            >
+              $197.341
             </h2>
+            <p style="font-size: 10px" class="hidden lg:block">
+              Earning increase automatically @ 1%/day
+            </p>
           </div>
           <div class="">
             <h1 class="font-semibold text-sm uppercase pt-4">
-              Total Balance
+              Total widthrawn
             </h1>
-            <h2 class="font-semibold text-xl w-max mx-auto px-4 py-2">
-              <span><i class="fab fa-btc text-yellow-600"></i></span> 1.0725
-            </h2>
+            <h2
+            class="font-semibold text-red-500 text-lg w-max mx-auto px-4 py-2"
+            >
+            <span><i class="fab fa-btc text-yellow-600"></i></span> 0.03124
+          </h2>
+        </div>
+        <div class="">
+          <h1 class="font-semibold text-sm uppercase pt-4">
+            Total Balance
+          </h1>
+          <h2 class="font-semibold text-lg w-max mx-auto px-4 py-2">
+            <span><i class="fab fa-btc text-yellow-600"></i></span> 1.0725
+          </h2>
+        </div>
           </div>
+            <div class="grid grid-cols-2 lg:grid-cols-2 gap-2 p-2">
+              <button class="px-10 py-5 bg-green-400 rounded-2xl shadow text-white font-semibold">Make Investment</button>
+              <button class="px-10 py-5 bg-green-400 rounded-2xl shadow text-white font-semibold">Widthraw Balance</button>
         </div>
           </div>
           <div class="flex flex-col gap-2">
-            <div class="mx-auto flex px-6 py-2 w-4/5 rounded-2xl bg-white shadow">
-              <h4><span class="fab fa-btc"></span> 0.00264</h4>
-              <div class="ml-auto"><i class="fa fa-check text-green-400"></i></div>
+            <h1 class="text-center font-semibold text-xl">Transactions</h1>
+            <div class="mx-auto flex px-6 py-4 w-4/5 rounded-2xl bg-white shadow justify-center items-center">
+              <div class="">
+                <h4><span class="fab fa-btc"></span> 0.00264</h4>
+                <p class="text-xs pl-4 text-gray-400">2:05PM 4/02/2021</p>
+              </div>
+              <div class="ml-auto bg-green-400 shadow-inner text-white px-4 py-1 rounded-full">
+                <i class="fa fa-check text-white"></i>
+              </div>
             </div>
-            <div class="mx-auto flex px-6 py-2 w-4/5 rounded-2xl bg-white shadow">
-              <h4><span class="fab fa-btc"></span> 0.08320</h4>
-              <div class="ml-auto"><i class="fa fa-check text-red-400"></i></div>
+            <div class="mx-auto flex px-6 py-4 w-4/5 rounded-2xl bg-white shadow justify-center items-center">
+              <div class="">
+                <h4><span class="fab fa-btc"></span> 0.00264</h4>
+                <p class="pl-4 text-gray-400" style="font-size: 10px">2:05PM 4/02/2021</p>
+              </div>
+              <div class="ml-auto bg-gray-100 shadow-inner text-white px-4 py-1 rounded-full">
+                <i class="fa fa-check text-gray-400"></i>
+              </div>
+            </div>
+            <div class="mx-auto flex px-6 py-4 w-4/5 rounded-2xl bg-white shadow justify-center items-center">
+              <div class="">
+                <h4><span class="fab fa-btc"></span> 0.00264</h4>
+                <p class="pl-4 text-gray-400" style="font-size: 10px">2:05PM 4/02/2021</p>
+              </div>
+              <div class="ml-auto bg-gray-100 shadow-inner text-white px-4 py-1 rounded-full">
+                <i class="fa fa-ban text-red-500"></i>
+              </div>
             </div>
             
+            
           </div>
-          <div class="p-10 text-center">
+           <!--<div class="p-10 text-center">
             <h1 class="font-semibold text-xl uppercase text-center py-2">Make a Deposit</h1>
             <div class="text-center">
               <div class="flex items-center mx-auto w-56">
@@ -238,7 +263,7 @@
                 </h1>
               </div>
             </div>
-          </div>
+          </div> 
           
         </div>
       </div>
@@ -325,7 +350,7 @@
             the latest Blockchain capabilities. Get all benefits of “digital
             gold” and more features with the world’s best crypto bank named
             ‘Bankereum’.
-          </p>
+          </p>z
         </div>
         <div class="lg:pt-0 pt-10 lg:px-10">
           <h1 class="font-semibold text-2xl">Newsletter</h1>
