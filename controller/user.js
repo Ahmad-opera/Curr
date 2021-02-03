@@ -33,7 +33,7 @@ module.exports.gen_transaction = async (req, res) => {
         currency: "USD",
         expire_time: 10,
         description: "Hello there",
-        suceess_url: "https://bankereum.herokuapp.com/user/getnotify",
+        suceess_url: "https://bankereum.herokuapp.com/user/notify",
       })
       .then((response) => {
         return response.data;
