@@ -33,7 +33,7 @@ module.exports.gen_transaction = async (req, res) => {
         currency: "USD",
         expire_time: 10,
         description: "Hello there",
-        suceess_url: "https://bankereum.herokuapp.com/getnotify",
+        suceess_url: "https://bankereum.herokuapp.com/user/getnotify",
       })
       .then((response) => {
         return response.data;
@@ -48,7 +48,7 @@ module.exports.gen_transaction = async (req, res) => {
         invoice_id: serverRes.data.invoice_id,
         url: serverRes.data.url,
         status: serverRes.data.status,
-        total_amout: serverRes.data.total_amount,
+        total_amount: serverRes.data.total_amount,
       },
     });
     newTransaction.save();
@@ -58,23 +58,8 @@ module.exports.gen_transaction = async (req, res) => {
   }
 };
 
-module.exports.invest_post = async (req, res) => {
-  return await axios.post(
-    "https://coinremitter.com/api/v3/BTC/create-invoice",
-    {
-      api_key: process.env.API_KEY,
-      password: process.env.PASSWORD,
-      amount: 10,
-      name: "Something",
-      currency: "USD",
-      expire_time: 10,
-      description: "Hello there",
-    }
-  );
-  // .then((resp) => {
-  //   return res.send(resp);
-  // })
-  // .catch((error) => {
-  //   console.error(error);
-  // });
+module.exports.notify_invoice_success = async (req, res) => {
+  const serverRes = await req.body;
+  console.log(serverRes);
+  res.send();
 };
