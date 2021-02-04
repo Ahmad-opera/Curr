@@ -62,7 +62,7 @@ module.exports.gen_transaction = async (req, res) => {
 module.exports.notify_invoice_success = async (req, res) => {
   const serverRes = await req.body;
   const saveNotice = new Notice({
-    invoice: { serverRes },
+    invoice: serverRes,
   });
   saveNotice.save();
   console.log(serverRes);
