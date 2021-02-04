@@ -66,5 +66,5 @@ module.exports.notify_invoice_success = async (req, res) => {
     invoice: { serverRes },
   });
   saveNotice.save();
-  res.send(saveNotice);
+  res.send("Success");
 };
