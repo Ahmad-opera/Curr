@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const axios = require("axios");
 const dotenv = require("dotenv");
 const Investment = require("../model/investment");
+const Notice = require("../model/notice");
 
 dotenv.config();
 
@@ -61,5 +62,9 @@ module.exports.gen_transaction = async (req, res) => {
 module.exports.notify_invoice_success = async (req, res) => {
   const serverRes = await req.body;
   console.log(serverRes);
-  res.send();
+  const saveNotice = new Notice({
+    invoice: serverRes,
+  });
+  saveNotice.save();
+  res.send(saveNotice, serverRes);
 };
