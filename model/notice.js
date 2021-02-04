@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 
 const noticeSchema = new mongoose.Schema({
   invoice: {
-    type: Object,
+    type: JSON,
     required: true,
   },
 });
