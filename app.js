@@ -5,12 +5,13 @@ const dotenv = require("dotenv");
 const ejs = require("ejs");
 const cookieParser = require("cookie-parser");
 const path = require("path");
+const bodyParser = require("body-parser");
 
 // Set-up dotenv
 dotenv.config();
 
 // Middlewares
-app.use(express.json({ extended: false }));
+app.use(express.json());
 app.set("view engine", "ejs");
 app.use(cookieParser());
 app.use("/", express.static(path.join(__dirname, "public")));
