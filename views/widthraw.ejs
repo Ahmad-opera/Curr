@@ -1,0 +1,144 @@
+
+<%- include('partials/header') -%>
+
+    <main class="py-32">
+      <div class="px-10 shadow-xl py-8 w-max mx-auto">
+        <h1 class="text-2xl font-semibold p-6 text-center">
+          Log in with your Bankereum account
+        </h1>
+        <form>
+          <div class="">
+            <input
+              type="text"
+              name="email"
+              placeholder="Email Address"
+              class="px-6 py-3 focus:outline-none w-full hover:bg-gray-50 focus:shadow-inner border"
+            />
+            <p style="font-size: 10px">
+              You may login with either your assigned username or your e-mail
+              address.
+            </p>
+          </div>
+          <div class="pt-8">
+            <input
+              type="text"
+              name="password"
+              placeholder="Password"
+              class="px-6 py-3 focus:outline-none w-full hover:bg-gray-50 focus:shadow-inner border"
+            />
+            <p style="font-size: 10px">The password field is case sensitive.</p>
+          </div>
+          <p style="font-size: 10px">
+            This site is protected by reCAPTCHA and the Google
+            <span class="text-blue-500">Privacy Policy</span>
+            and <span class="text-blue-500">Terms of Service</span> apply.
+          </p>
+          <div class="py-4">
+            <button
+              type="submit"
+              class="py-2 px-6 bg-blue-400 w-full font-semibold text-white uppercase"
+            >
+              Login
+            </button>
+          </div>
+          <div class="grid grid-cols-2">
+            <p class="text-sm">
+              No Account?
+              <a href="./registration.html"
+                ><span class="text-blue-500">Register</span></a
+              >
+            </p>
+            <p class="ml-auto text-sm">
+              <a href="./registration.html"
+                ><span class="text-blue-500">Forgot Password</span></a
+              >
+            </p>
+          </div>
+        </form>
+        <script>
+          let form = document.querySelector("form");
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let email = document.querySelector('[name="email"]').value;
+            let password = document.querySelector('[name="password"]').value;
+            let data = { email, password };
+            fetch("/api/user/login", {
+              method: "POST", // or 'PUT'
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            })
+              .then((response) => response)
+              .then((data) => {
+                window.location.replace("/user/dashboard");
+                console.log("Success:", data);
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+          });
+        </script>
+      </div>
+    </main>
+    <iframe
+      src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=light&amp;pref_coin_id=1505&amp;invert_hover="
+      width="100%"
+      height="36px"
+      scrolling="auto"
+      marginwidth="0"
+      marginheight="0"
+      frameborder="0"
+      border="0"
+      style="border: 0; margin: 0; padding: 0"
+    ></iframe>
+    <footer class="px-10 py-6 bg-gray-800 text-white">
+      <div class="lg:flex">
+        <div class="px-8">
+          <img src="./img/logo.png" alt="Logo" />
+          <p class="text-xs">
+            Bankereum is a 100% decentralized global bank based on Ethereum
+            blockchain technology, which already successfully unify professional
+            traders, companies and individuals wishing to use cryptocurrencies
+            without the risk of volatility on single platform. The software is
+            based on Ethereum cryptocurrency and the transaction framework uses
+            the latest Blockchain capabilities. Get all benefits of “digital
+            gold” and more features with the world’s best crypto bank named
+            ‘Bankereum’.
+          </p>
+        </div>
+        <div class="lg:pt-0 pt-10 lg:px-10">
+          <h1 class="font-semibold text-2xl">Newsletter</h1>
+          <h4 class="font-semibold text-xs">
+            Keep up to date with our progress. Subscribe for e-mail updates.
+          </h4>
+          <div class="">
+            <input
+              type="text"
+              placeholder="Email Address"
+              class="shadow-inner focus:outline-none bg-gray-700 px-6 py-3 my-2 rounded-3xl"
+            />
+            <button
+              class="px-6 py-2 hover:bg-gray-400 focus:outline-none bg-gray-600 rounded-3xl"
+            >
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex grid grid-cols-1 lg:grid-cols-6 lg:divide-x pt-10 text-center text-xs pb-10"
+      >
+        <a href="#"><h3 class="text-xs">Banking</h3></a>
+        <a href="#"><h3 class="text-xs">Disclaimer</h3></a>
+        <a href="#"><h3 class="text-xs">FAQ</h3></a>
+        <a href="#"><h3 class="text-xs">Cookie Policy</h3></a>
+        <a href="#"><h3 class="text-xs">Privacy Policy</h3></a>
+        <a href="#"><h3 class="text-xs">About Us</h3></a>
+      </div>
+      <h1 class="text-center">
+        Copyright © 2020-2021 Bankereum. All rights reserved.
+      </h1>
+    </footer>
+  </body>
+</html>

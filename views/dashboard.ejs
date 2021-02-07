@@ -108,7 +108,7 @@
     <main class="py-32">
       <div class="lg:flex justify-center text-center w-full">
         <div class="mr-auto px-4">
-          <h1 class="font-normal lg:text-2xl ml-auto">Hi <%= data %>! </h1>
+          <h1 class="font-normal lg:text-2xl ml-auto">Hi <%= data.Firsname %>! </h1>
         </div>
         <div
           class="lg:ml-auto w-max mx-auto px-6 py-2 bg-white lg:shadow-2xl rounded-full lg:mr-6"
@@ -130,7 +130,7 @@
                 <h2
                 class="font-semibold text-lg text-blue-700 w-max mx-auto px-4 py-2"
               >
-                $173.23
+                <i class="fab fa-btc"></i><%= data.account_balance %>
               </h2>
             </div>
             <div class="">
@@ -172,7 +172,33 @@
           </div>
           <div class="flex flex-col gap-2">
             <h1 class="text-center font-semibold text-xl">Transactions</h1>
-            <div class="mx-auto flex px-6 py-4 w-4/5 rounded-2xl bg-white shadow justify-center items-center">
+            <% if (investments !== []) { %>  
+              <% investments.forEach(function(investment){ %>
+                <% if (investment.invoice.status == "Pending") { %>  
+                  <div class="mx-auto flex px-6 py-4 w-4/5 rounded-2xl border-l-4 border-orange-400 bg-white shadow justify-center items-center">
+                    <div class="">
+                      <h4><span class="fab fa-btc"></span> <%= investment.invoice.total_amount.BTC%> <%= investment.invoice.status %> </h4>
+                      <p class="pl-4 text-gray-400" style="font-size: 10px">2:05PM 4/02/2021</p>
+                    </div>
+                    <div class="ml-auto bg-gray-100 shadow-inner text-white px-4 py-1 rounded-full">
+                      <i class="fa fa-check text-gray-400"></i>
+                    </div>
+                  </div>
+                  <% } %>
+                  <% if (investment.invoice.status == "Paid") { %>  
+                <div class="mx-auto flex px-6 py-4 w-4/5 border-l-4 border-green-400 rounded-2xl bg-white shadow justify-center items-center">
+                  <div class="">
+                    <h4><span class="fab fa-btc"></span> <%= investment.invoice.total_amount.BTC%> <%= investment.invoice.status %></h4>
+                    <p class="text-xs pl-4 text-gray-400">2:05PM 4/02/2021</p>
+                  </div>
+                  <div class="ml-auto bg-green-400 shadow-inner text-white px-4 py-1 rounded-full">
+                    <i class="fa fa-check text-white"></i>
+                  </div>
+                </div>
+                <% } %>
+              <% }); %>
+            <% } %>
+            <!-- <div class="mx-auto flex px-6 py-4 w-4/5 rounded-2xl bg-white shadow justify-center items-center">
               <div class="">
                 <h4><span class="fab fa-btc"></span> 0.00264</h4>
                 <p class="text-xs pl-4 text-gray-400">2:05PM 4/02/2021</p>
@@ -198,7 +224,7 @@
               <div class="ml-auto bg-gray-100 shadow-inner text-white px-4 py-1 rounded-full">
                 <i class="fa fa-ban text-red-500"></i>
               </div>
-            </div>
+            </div> -->
             
             
           </div>

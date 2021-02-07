@@ -36,7 +36,7 @@ module.exports.login = async (req, res) => {
   );
   return res
     .cookie("token", token, {
-      maxAge: 10000 * 10 * 10,
+      maxAge: 10000 * 10 * 10 * 24,
       secure: false, // set to true if your using https
       httpOnly: true,
     })

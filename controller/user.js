@@ -11,10 +11,15 @@ dotenv.config();
 module.exports.invest_get = async (req, res) => {
   if (!req.cookies.token) res.status(403).send("Access Denied!");
   const decodedJWT = await jwt.decode(req.cookies.token);
+  const userInvestments = await Investment.find({ userID: decodedJWT.email });
+  console.log(userInvestments);
   try {
     const userDetails = await User.findOne({ email: decodedJWT.email });
     if (userDetails) {
-      res.render("dashboard", { data: userDetails.name });
+      res.render("dashboard", {
+        data: userDetails,
+        investments: userInvestments,
+      });
     }
   } catch (error) {
     console.log(error);
@@ -33,7 +38,7 @@ module.exports.gen_transaction = async (req, res) => {
         name: "Something",
         currency: "USD",
         expire_time: 10,
-        description: "Hello there",
+        description: `Deposit`,
         suceess_url: "https://bankereum.herokuapp.com/user/notify",
       })
       .then((response) => {
@@ -43,14 +48,8 @@ module.exports.gen_transaction = async (req, res) => {
         return err;
       });
     const newTransaction = new Investment({
-      userEmail: decodedJWT.email,
-      invoice: {
-        id: serverRes.data.id,
-        invoice_id: serverRes.data.invoice_id,
-        url: serverRes.data.url,
-        status: serverRes.data.status,
-        total_amount: serverRes.data.total_amount,
-      },
+      userID: decodedJWT.email,
+      invoice: serverRes.data,
     });
     newTransaction.save();
     res.send(newTransaction);
@@ -62,34 +61,42 @@ module.exports.gen_transaction = async (req, res) => {
 const JSONStream = require("JSONStream");
 
 module.exports.notify_invoice_success = async (req, res) => {
-  const serverRes = await req.body;
-  res.send(serverRes);
-  try {
-    console.log(`${serverRes}`);
-    const saveNotice = new Notice({
-      invoice: serverRes,
-    });
-    saveNotice.save();
-    res.send(saveNotice);
-  } catch (error) {
-    console.log(error);
-  }
+  const noticeBody = await req.body;
+  const getInvestment = await Investment.findOneAndUpdate(
+    {
+      "invoice.url": noticeBody.url,
+    },
+    {
+      invoice: noticeBody,
+    }
+  );
+  res.send(getInvestment);
+  // try {
+  //   console.log(`${noticeBody}`);
+  //   const saveNotice = new Notice({
+  //     invoice: noticeBody,
+  //   });
+  //   saveNotice.save();
+  //   res.send(saveNotice);
+  // } catch (error) {
+  //   console.log(error);
+  // }
 };
 
 module.exports.send_req = async (req, res) => {
   const serverRes = await axios
     .post(`http://localhost:3000/user/notify`, {
       id: "5b7650458ebb8306365624a2",
-      invoice_id: "BTC002",
-      merchant_id: "5bc46fb28ebb8363d2657347",
-      url: "https://coinremitter.com/invoice/b7650458ebb8306365624a2",
+      invoice_id: "BTC10339",
+      merchant_id: "6017296e0fc83659122ebdd4",
+      url: "https://coinremitter.com/invoice/601f405de1338338f866b7ed",
       total_amount: {
         BTC: "0.00020390",
         USD: "2.21979838",
         EUR: "2",
       },
       paid_amount: {
-        BTC: "0.00020390",
+        BTC: "0.00025038",
         USD: "2.21979838",
         EUR: "2",
       },
@@ -101,9 +108,9 @@ module.exports.send_req = async (req, res) => {
       base_currency: "EUR",
       coin: "BTC",
       name: "random name",
-      description: "Hello world",
+      description: "Deposit",
       wallet_name: "my-wallet",
-      address: "rger54654gsd4h6u7dgsg",
+      address: "3QJ5iMzKquZSzdecAaCytTNKW9TY2y1mTV",
       payment_history: [
         {
           txid: "20879ba9a186030a12d7999ec3aa8d53270cfbf535d124b810bc252712448",
@@ -112,7 +119,7 @@ module.exports.send_req = async (req, res) => {
           amount: 2,
           date: "2019-12-02 12:09:02",
           confirmation: 1,
-         },
+        },
       ],
       status: "Paid",
       status_code: 1,
@@ -120,7 +127,7 @@ module.exports.send_req = async (req, res) => {
       suceess_url: "http://yourdomain.com/success-url",
       fail_url: "http://yourdomain.com/fail-url",
       expire_on: "2018-12-06 10:35:57",
-      invoice_date: "2018-08-17 10:04:13",
+      invoice_date: "2021-02-06 22:06:26",
       last_updated_date: "2018-08-17 10:04:13",
     })
     .then((response) => {

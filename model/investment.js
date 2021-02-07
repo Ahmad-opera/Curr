@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
 const investmentSchema = new mongoose.Schema({
-  userEmail: {
+  userID: {
     type: String,
     required: true,
   },
@@ -12,8 +12,7 @@ const investmentSchema = new mongoose.Schema({
     default: Date.now(),
   },
   invoice: {
-    type: JSON,
-    required: true,
+    type: Object,
   },
 });
 

@@ -17,6 +17,11 @@ const userSchema = new mongoose.Schema({
     required: true,
     min: 6,
   },
+  account_balance: {
+    type: Number,
+    required: true,
+    default: 0.0001,
+  },
   account_type: {
     type: String,
     required: true,
@@ -29,6 +34,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     min: 8,
+    unique: true,
   },
   password: {
     type: String,
